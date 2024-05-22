@@ -1,0 +1,8 @@
+{
+  "name": "random-problems",
+  "description": "This is just a list of problems solved using code. These can range from basic pattern printing to DSA solutions.",
+  "scripts": {
+    "fmt": "npx prettier -w src/"
+  },
+  "license": "ISC"
+}
