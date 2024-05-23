@@ -10,10 +10,10 @@
   *
  */
 
-function printRightAngledNumberPyramid(n) {
+function printInvertedRightAngledPyramid(n) {
   for (let row = 1; row < n + 1; row++) {
     console.log("* ".repeat(n - row + 1));
   }
 }
 
-printRightAngledNumberPyramid(5);
+printInvertedRightAngledPyramid(5);

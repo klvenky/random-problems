@@ -10,10 +10,10 @@
   5 5 5 5 5
  */
 
-function printRightAngledNumberPyramid(n) {
+function printRightAngledSameNumberPyramid(n) {
   for (let row = 1; row < n + 1; row++) {
     console.log(`${row} `.repeat(row));
   }
 }
 
-printRightAngledNumberPyramid(5);
+printRightAngledSameNumberPyramid(5);

@@ -10,7 +10,7 @@
   1
  */
 
-function printRightAngledNumberPyramid(n) {
+function printInvertedRightAngledAllNumberPyramid(n) {
   for (let row = 1; row < n + 1; row++) {
     let lineText = "";
     for (let column = n - row + 1; column > 0; column--)
@@ -19,4 +19,4 @@ function printRightAngledNumberPyramid(n) {
   }
 }
 
-printRightAngledNumberPyramid(5);
+printInvertedRightAngledAllNumberPyramid(5);

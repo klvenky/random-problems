@@ -4,5 +4,5 @@
   "scripts": {
     "fmt": "npx prettier -w src/"
   },
-  "license": "ISC"
+  "license": "UNLICENSED"
 }
