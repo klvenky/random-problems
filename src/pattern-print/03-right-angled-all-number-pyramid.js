@@ -10,7 +10,7 @@
   1 2 3 4 5
  */
 
-function printRightAngledSameNumberPyramid(n) {
+function printIncreasingLetterTriangle(n) {
   for (let row = 1; row < n + 1; row++) {
     let lineText = "";
     for (let column = 1; column <= row; column++) lineText += column + " ";
@@ -18,4 +18,4 @@ function printRightAngledSameNumberPyramid(n) {
   }
 }
 
-printRightAngledSameNumberPyramid(5);
+printIncreasingLetterTriangle(5);

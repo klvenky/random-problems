@@ -10,10 +10,10 @@
   * * * * *
  */
 
-function printRightAngledNumberPyramid(n) {
+function printIncreasingNumberTriangle(n) {
   for (let row = 0; row < n; row++) {
     console.log("* ".repeat(row + 1));
   }
 }
 
-printRightAngledNumberPyramid(5);
+printIncreasingNumberTriangle(5);

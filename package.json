@@ -7,6 +7,7 @@
   },
   "license": "UNLICENSED",
   "devDependencies": {
-    "husky": "^9.0.11"
+    "husky": "^9.0.11",
+    "prettier": "^3.2.5"
   }
 }
