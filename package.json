@@ -1,13 +1,19 @@
 {
   "name": "random-problems",
   "description": "This is just a list of problems solved using code. These can range from basic pattern printing to DSA solutions.",
+  "type": "module",
   "scripts": {
     "fmt": "npx prettier -w src/",
+    "test": "jest",
     "prepare": "husky"
   },
   "license": "UNLICENSED",
   "devDependencies": {
     "husky": "^9.0.11",
+    "jest": "^29.7.0",
     "prettier": "^3.2.5"
+  },
+  "dependencies": {
+    "tablemark": "^3.1.0"
   }
 }
