@@ -117,20 +117,20 @@ test("get node from number", () => {
 test("get num from list node", () => {
   const inputs = [123n, 456n, 123456n];
   inputs.forEach((input) =>
-    expect(getNumFromListNode(getNodeFromNum(input))).toEqual(input)
+    expect(getNumFromListNode(getNodeFromNum(input))).toEqual(input),
   );
 });
 
 test("add numbers in list", () => {
   expect(addTwoNumbers(getNodeFromNum(342n), getNodeFromNum(465n))).toEqual(
-    getNodeFromNum(807n)
+    getNodeFromNum(807n),
   );
 
   expect(
     addTwoNumbers(
       getNodeFromNum(1000000000000000000000000000001n),
-      getNodeFromNum(465n)
-    )
+      getNodeFromNum(465n),
+    ),
   ).toEqual(getNodeFromNum(1000000000000000000000000000466n));
 });
 

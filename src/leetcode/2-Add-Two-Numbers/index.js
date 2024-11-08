@@ -39,7 +39,7 @@ const getNumFromListNode = (node, value = 0n, exponent = 0n) => {
 const addTwoNumbers = (l1, l2) => {
   const num1 = getNumFromListNode(l1);
   const num2 = getNumFromListNode(l2);
-  const result = BigInt.asUintN(64,num1) +BigInt.asUintN(64, num2);
+  const result = BigInt.asUintN(64, num1) + BigInt.asUintN(64, num2);
   // console.log({ num1, num2, result });
   console.log(num1);
   console.log(num2);
@@ -51,8 +51,7 @@ const addTwoNumbers = (l1, l2) => {
 };
 addTwoNumbers(
   getNodeFromNum(1000000000000000000000000000001n),
-  getNodeFromNum(465n)
-)
-
+  getNodeFromNum(465n),
+);
 
 module.exports = { getNodeFromNum, getNumFromListNode, addTwoNumbers };
