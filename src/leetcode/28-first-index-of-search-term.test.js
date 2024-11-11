@@ -11,7 +11,6 @@ function strStr(haystack, needle) {
   if (haystack.match(regexp)) {
     for (let i = 0; i < haystack.length - needle.length + 1; i += 1) {
       const substr = haystack.substring(i, i + needle.length);
-      // console.log(`${i} - ${substr}`);
       if (substr === needle) {
         result = i;
         break;

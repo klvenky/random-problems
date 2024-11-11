@@ -10,15 +10,11 @@ function deleteDuplicates(head, map = undefined) {
   if (head !== null && head.val !== null) {
     if (!map.has(head?.val)) {
       map.set(head.val, true);
-      // console.log(`new value -> ${head.val}`);
       return new ListNode(head.val, deleteDuplicates(head.next, map));
     } else {
-      // console.log(`existing -> ${head.val}. Skipping`);
       if (head.next) {
-        // console.log(`going to next`);
         return deleteDuplicates(head.next, map);
       } else {
-        // console.log("no next. Exiting");
         return null;
       }
     }
@@ -43,7 +39,6 @@ test("delete duplicates", () => {
     const input = ArrayToListNode(scenario.input);
     const expected = ArrayToListNode(scenario.result);
     const actual = deleteDuplicates(input);
-    console.log(JSON.stringify({ expected, actual }));
     expect(actual).toEqual(expected);
   }
 });

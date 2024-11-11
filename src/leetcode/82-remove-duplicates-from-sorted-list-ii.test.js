@@ -46,7 +46,6 @@ function traverseAndDelete(head, map) {
 function deleteDuplicates(head) {
   const countMap = {};
   const unique = makeUnique(head, countMap);
-  console.log(JSON.stringify({ unique, countMap }));
   return traverseAndDelete(unique, countMap);
 }
 
@@ -64,7 +63,6 @@ test("delete duplicates from sorted list-2", () => {
     const input = ArrayToListNode(scenario.input);
     const expected = ArrayToListNode(scenario.result);
     const actual = deleteDuplicates(input);
-    console.log(JSON.stringify({ expected, actual }));
     expect(actual).toEqual(expected);
   }
 });

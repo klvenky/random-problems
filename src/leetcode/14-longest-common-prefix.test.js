@@ -1,7 +1,6 @@
 // https://leetcode.com/problems/longest-common-prefix/
 const { performance } = require("node:perf_hooks");
 const { tableTestRunner } = require("../table-tests-helpers.js");
-const { logTiming } = require("../helpers/utils.js");
 
 /**
  * Generates all possible substrings of a given text.
@@ -44,9 +43,6 @@ function longestCommonPrefix(list) {
     getSubStrings(listItem, { startOnly: true }),
   );
 
-  const { timestamp: subStringsGeneratedBy, seconds } = logTiming(startTime);
-  // console.log(`substrinGenDuration: ${seconds} seconds`);
-
   let lcp = "";
   for (let index = 0; index < subStringSets.length; index += 1) {
     const l1Start = performance.now();
@@ -68,8 +64,6 @@ function longestCommonPrefix(list) {
           break;
         }
       }
-      // const { timestamp: endL3, seconds } = logTiming(startL3);
-      // console.log(`l3 - ${si} - took ${seconds} seconds`);
       if (skip) {
         skip = false;
         matchCount = 0;
@@ -82,18 +76,9 @@ function longestCommonPrefix(list) {
         }
       }
     }
-    // const { timestamp, seconds } = logTiming(l1Start);
-    // console.log(`loop 1 - ${index} took ${seconds} seconds`);
   }
   return lcp;
 }
-
-// longestCommonPrefix([
-//   "flower",
-//   "flow",
-//   "flight",
-//   "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-// ]);
 
 tableTestRunner(
   longestCommonPrefix,
