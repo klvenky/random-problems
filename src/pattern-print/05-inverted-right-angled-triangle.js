@@ -11,9 +11,11 @@
  */
 
 function printInvertedRightAngledPyramid(n) {
+  let result = "";
   for (let row = 1; row < n + 1; row++) {
-    console.log("* ".repeat(n - row + 1));
+    result += "* ".repeat(n - row + 1) + "\n";
   }
+  return result;
 }
 
-printInvertedRightAngledPyramid(5);
+console.log(printInvertedRightAngledPyramid(5));

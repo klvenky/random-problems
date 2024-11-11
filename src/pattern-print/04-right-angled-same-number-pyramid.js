@@ -11,9 +11,11 @@
  */
 
 function printRightAngledSameNumberPyramid(n) {
+  let result = "";
   for (let row = 1; row < n + 1; row++) {
-    console.log(`${row} `.repeat(row));
+    result += `${row} `.repeat(row);
   }
+  return result;
 }
 
-printRightAngledSameNumberPyramid(5);
+console.log(printRightAngledSameNumberPyramid(5));

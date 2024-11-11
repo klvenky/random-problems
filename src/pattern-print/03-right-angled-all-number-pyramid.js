@@ -11,11 +11,13 @@
  */
 
 function printIncreasingLetterTriangle(n) {
+  let result = "";
   for (let row = 1; row < n + 1; row++) {
     let lineText = "";
     for (let column = 1; column <= row; column++) lineText += column + " ";
-    console.log(lineText.trim());
+    result += lineText.trim() + "\n";
   }
+  return result;
 }
 
-printIncreasingLetterTriangle(5);
+console.log(printIncreasingLetterTriangle(5));

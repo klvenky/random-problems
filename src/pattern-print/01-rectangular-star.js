@@ -11,9 +11,11 @@
  */
 
 function printRectangularStar(n) {
+  let result = "";
   for (let index = 1; index < n; index++) {
-    console.log("* ".repeat(n));
+    result += "* ".repeat(n) + "\n";
   }
+  return result;
 }
 
-printRectangularStar(5);
+console.log(printRectangularStar(5));

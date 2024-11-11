@@ -20,22 +20,23 @@ Source: https://takeuforward.org/pattern/pattern-17-alpha-hill-pattern/
 
 function printAlphaHill(n) {
   const maxCols = 2 * n - 1;
+  let result = "";
   for (let row = 1; row < n + 1; row++) {
-    let lineText = "";
     const blankTill = n - row;
     const blankAfter = n + row;
     for (let column = 1; column <= maxCols; column++) {
-      if (column <= blankTill || column >= blankAfter) lineText += " ";
+      if (column <= blankTill || column >= blankAfter) result += " ";
       else {
         if (column <= n) {
-          lineText += String.fromCharCode(64 + column - n + row);
+          result += String.fromCharCode(64 + column - n + row);
         } else {
-          lineText += String.fromCharCode(64 + n - (column - row));
+          result += String.fromCharCode(64 + n - column + row);
         }
       }
     }
-    console.log(lineText);
+    result += "\n";
   }
+  console.log(result);
 }
 
 printAlphaHill(6);

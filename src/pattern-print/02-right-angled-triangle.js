@@ -11,9 +11,11 @@
  */
 
 function printIncreasingNumberTriangle(n) {
+  let result = "";
   for (let row = 0; row < n; row++) {
-    console.log("* ".repeat(row + 1));
+    result += "* ".repeat(row + 1) + "\n";
   }
+  return result;
 }
 
-printIncreasingNumberTriangle(5);
+console.log(printIncreasingNumberTriangle(5));
