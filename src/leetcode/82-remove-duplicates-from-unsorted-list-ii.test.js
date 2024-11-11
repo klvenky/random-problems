@@ -40,12 +40,12 @@ function deleteDuplicates(head) {
 }
 
 const scenarios = [
-  { input: [1, 2, 3, 3, 4, 4, 5], result: [1, 2, 5] },
-  {
-    input: [1, 1, 1, 2, 3],
-    result: [2, 3],
-  },
-  { input: [0, 0, 0, 0, 3], result: [3] },
+  { input: [1, 5, 5, 6, 2, 3, 3, 4, 4, 5], result: [1, 6, 2] },
+  // {
+  //   input: [1, 1, 1, 2, 3],
+  //   result: [2, 3],
+  // },
+  // { input: [0, 0, 0, 0, 3], result: [3] },
 ];
 
 test("delete duplicates from sorted list-2", () => {
@@ -53,6 +53,7 @@ test("delete duplicates from sorted list-2", () => {
     const input = ArrayToListNode(scenario.input);
     const expected = ArrayToListNode(scenario.result);
     const actual = deleteDuplicates(input);
+    console.log(JSON.stringify({ expected, actual }));
     expect(actual).toEqual(expected);
   }
 });
