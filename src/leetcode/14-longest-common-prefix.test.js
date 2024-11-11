@@ -1,7 +1,7 @@
 // https://leetcode.com/problems/longest-common-prefix/
 const { performance } = require("node:perf_hooks");
-const { tableTestRunner } = require("../../table-tests-helpers");
-const { logTiming } = require("../../helpers/utils.js");
+const { tableTestRunner } = require("../table-tests-helpers.js");
+const { logTiming } = require("../helpers/utils.js");
 
 /**
  * Generates all possible substrings of a given text.

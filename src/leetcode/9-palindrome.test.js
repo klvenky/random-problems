@@ -1,5 +1,5 @@
 // Source: https://leetcode.com/problems/palindrome-number/
-const { tableTestRunner } = require("../../table-tests-helpers");
+const { tableTestRunner } = require("../table-tests-helpers");
 
 /**
  * @param {number} input

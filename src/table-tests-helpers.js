@@ -24,4 +24,26 @@ function tableTestRunner(func, inputs, outputs) {
   }
 }
 
-module.exports = { tableTestRunner };
+function tableTester(func, scenarios) {
+  for (let i = 0; i < scenarios.length; i++) {
+    const [input, output] = scenarios[i];
+    runTest(func, input, output);
+  }
+}
+
+function runTest(func, input, expected) {
+  test(`${func.name}: ${JSON.stringify(input)}`, async () => {
+    let result;
+    try {
+      result = await func(...input);
+      expect(result).toEqual(expected);
+    } catch (e) {
+      if (expected instanceof Error) {
+        expect(e).toEqual(expected);
+      } else {
+        throw e;
+      }
+    }
+  });
+}
+module.exports = { tableTestRunner, tableTester, runTest };
