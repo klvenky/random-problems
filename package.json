@@ -5,6 +5,7 @@
   "scripts": {
     "fmt": "npx prettier -w src/",
     "test": "jest",
+    "test:w": "jest --watch",
     "prepare": "husky"
   },
   "license": "UNLICENSED",

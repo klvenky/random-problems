@@ -1,7 +1,6 @@
 const {
   addTwoNumbers,
   getNodeFromNum,
-  getNumberStringFromNode,
   getNumFromListNode,
   parseStringToNode,
 } = require("./num-string-parse");

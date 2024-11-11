@@ -48,13 +48,7 @@ const addTwoNumbers = (l1, l2) => {
   const num1 = getNumFromListNode(l1);
   const num2 = getNumFromListNode(l2);
   const result = BigInt.asUintN(64, num1) + BigInt.asUintN(64, num2);
-  // console.log({ num1, num2, result });
-  console.log(num1);
-  console.log(num2);
-  console.log(result);
   const listNode = getNodeFromNum(result);
-  // console.log(JSON.stringify(listNode));
-  console.log(result.toString());
   return listNode;
 };
 
@@ -65,7 +59,7 @@ const addTwoNumbers = (l1, l2) => {
 
 function parseStringToNode(input, prev = "") {
   // assuming we are always getting a valid string input
-  let prev;
+  // let prev;
   // for (let i = input.length - 1; i >= 0; i -= 1) {
   //   if (!prev) {
   //     prev = { val: input[i], next: null };
