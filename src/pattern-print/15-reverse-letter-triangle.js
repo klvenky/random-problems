@@ -23,9 +23,9 @@ function printAlphaRamp(n) {
     let lineText = "";
     for (let column = 1; column <= n + 1; column++)
       lineText +=
-        n - column - row >= -1 ?
-          String.fromCharCode(ASCII_CODE_A + column - 1)
-        : " ";
+        n - column - row >= -1
+          ? String.fromCharCode(ASCII_CODE_A + column - 1)
+          : " ";
     console.log(lineText.trim());
   }
 }
