@@ -68,7 +68,7 @@ function longestCommonPrefix(list) {
         skip = false;
         matchCount = 0;
         continue;
-      } else if (matchCount === subStringSets.length) {
+      } else if (matchCount == subStringSets.length) {
         match = subString;
         if ((match?.length || 0) > lcp.length) {
           lcp = match;

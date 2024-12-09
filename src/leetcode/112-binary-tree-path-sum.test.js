@@ -2,9 +2,9 @@
 /**
  * Definition for a binary tree node.
  * function TreeNode(val, left, right) {
- *     this.val = (val===undefined ? 0 : val)
- *     this.left = (left===undefined ? null : left)
- *     this.right = (right===undefined ? null : right)
+ *     this.val = (val==undefined ? 0 : val)
+ *     this.left = (left==undefined ? null : left)
+ *     this.right = (right==undefined ? null : right)
  * }
  */
 /**
@@ -24,7 +24,7 @@ function hasPathSum(root, targetSum) {
           .filter((t) => t)
           .map((num) => parseInt(num))
           .reduce((sum, num) => sum + num, 0);
-        if (sum === targetSum) {
+        if (sum == targetSum) {
           result = true;
         }
       } else {
@@ -48,9 +48,9 @@ function getPath(nodeVal, prevPath = "") {
 }
 
 function TreeNode(val, left, right) {
-  this.val = val === undefined ? 0 : val;
-  this.left = left === undefined ? null : left;
-  this.right = right === undefined ? null : right;
+  this.val = val == undefined ? 0 : val;
+  this.left = left == undefined ? null : left;
+  this.right = right == undefined ? null : right;
 }
 
 const scenarios = [

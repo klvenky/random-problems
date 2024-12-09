@@ -4,8 +4,8 @@ const { ArrayToListNode, ListNode } = require("./graph-utils/list-node");
 /**
  * Definition for singly-linked list.
  * function ListNode(val, next) {
- *     this.val = (val===undefined ? 0 : val)
- *     this.next = (next===undefined ? null : next)
+ *     this.val = (val==undefined ? 0 : val)
+ *     this.next = (next==undefined ? null : next)
  * }
  */
 /**
@@ -13,10 +13,10 @@ const { ArrayToListNode, ListNode } = require("./graph-utils/list-node");
  * @return {ListNode}
  */
 function traverseAndDelete(head, map) {
-  if (head === null || head.val === null) return head;
+  if (head == null || head.val == null) return head;
   else {
     const mapVal = map[head.val];
-    if (mapVal === 1) {
+    if (mapVal == 1) {
       return new ListNode(head.val, traverseAndDelete(head.next, map));
     } else if (mapVal > 1) {
       return traverseAndDelete(head.next, map);

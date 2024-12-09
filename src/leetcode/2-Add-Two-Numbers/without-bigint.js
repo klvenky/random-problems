@@ -2,8 +2,8 @@
 /**
  * Definition for singly-linked list.
  * function ListNode(val, next) {
- *     this.val = (val===undefined ? 0 : val)
- *     this.next = (next===undefined ? null : next)
+ *     this.val = (val==undefined ? 0 : val)
+ *     this.next = (next==undefined ? null : next)
  * }
  */
 
@@ -11,7 +11,7 @@ const getNodeFromNum = (input, firstRun = false) => {
   const remainder = input % 10;
   const quotient = Math.floor(input / 10);
   let output;
-  if (input === 0 && firstRun) {
+  if (input == 0 && firstRun) {
     output = { val: 0, next: null };
   } else if (remainder >= 0 && quotient > 0) {
     output = {

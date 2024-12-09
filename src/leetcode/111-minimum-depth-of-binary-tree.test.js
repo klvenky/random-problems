@@ -2,9 +2,9 @@
 /**
  * Definition for a binary tree node.
  * function TreeNode(val, left, right) {
- *     this.val = (val===undefined ? 0 : val)
- *     this.left = (left===undefined ? null : left)
- *     this.right = (right===undefined ? null : right)
+ *     this.val = (val==undefined ? 0 : val)
+ *     this.left = (left==undefined ? null : left)
+ *     this.right = (right==undefined ? null : right)
  * }
  */
 /**
@@ -18,11 +18,11 @@ function minDepth(node) {
     const leftDepth = minDepth(node.left);
     const rightDepth = minDepth(node.right);
     // result = 1 + (leftDepth < rightDepth ? leftDepth : rightDepth);
-    if (leftDepth === 0 && rightDepth === 0) {
+    if (leftDepth == 0 && rightDepth == 0) {
       result += 1;
-    } else if (leftDepth === 0) {
+    } else if (leftDepth == 0) {
       result += 1 + rightDepth;
-    } else if (rightDepth === 0) {
+    } else if (rightDepth == 0) {
       result += 1 + leftDepth;
     } else {
       result = 1 + (leftDepth < rightDepth ? leftDepth : rightDepth);

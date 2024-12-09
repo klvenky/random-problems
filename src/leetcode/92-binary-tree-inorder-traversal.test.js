@@ -4,9 +4,9 @@
  * @return {number[]}
  */
 function TreeNode(val, left, right) {
-  this.val = val === undefined ? 0 : val;
-  this.left = left === undefined ? null : left;
-  this.right = right === undefined ? null : right;
+  this.val = val == undefined ? 0 : val;
+  this.left = left == undefined ? null : left;
+  this.right = right == undefined ? null : right;
 }
 
 function inorderTraversalIterative(node) {
@@ -24,7 +24,7 @@ function inorderTraversalIterative(node) {
     } else if (temp?.right) {
       console.log(`going right -> ${JSON.stringify(temp.right)}`);
       temp = temp?.right;
-    } else if (temp.right === null && temp.right === null) {
+    } else if (temp.right == null && temp.right == null) {
       console.log("exiting");
       done = true;
     }
@@ -35,8 +35,8 @@ function inorderTraversalIterative(node) {
 
 function inorderTraversalRecursive(node) {
   const traversal = [];
-  if (node === null) {
-  } else if (node.left === null && node.right === null) {
+  if (node == null) {
+  } else if (node.left == null && node.right == null) {
     traversal.push(node.val);
   } else {
     if (node.left) {

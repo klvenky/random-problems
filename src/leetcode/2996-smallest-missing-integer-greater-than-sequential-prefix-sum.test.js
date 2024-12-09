@@ -9,7 +9,7 @@ var missingInteger = function (nums) {
   for (let i = 0; i < nums.length; i += 1) {
     let counter = 0;
     for (let j = i; j < nums.length; j += 1) {
-      if (i === j) {
+      if (i == j) {
         counter += 1;
         continue;
       }
@@ -35,7 +35,7 @@ var missingInteger = function (nums) {
       return res + parseInt(ds);
     }, 0);
 
-  if (sum === 0) {
+  if (sum == 0) {
     let max = 0;
     nums.forEach((num) => {
       if (num > max) max = num;
@@ -58,7 +58,7 @@ var missingInteger = function (nums) {
 };
 
 function isSequential(nums, i) {
-  const result = nums[i] === nums[i - 1] + 1;
+  const result = nums[i] == nums[i - 1] + 1;
   return result;
 }
 

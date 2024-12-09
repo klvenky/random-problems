@@ -14,7 +14,7 @@ function isPalindrome(input) {
     next = Math.floor(next / 10);
   }
 
-  return reversed === input;
+  return reversed == input;
 }
 
 tableTestRunner(isPalindrome, [[121], [-121]], [true, false]);

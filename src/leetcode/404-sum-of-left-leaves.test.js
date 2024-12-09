@@ -2,9 +2,9 @@
 /**
  * Definition for a binary tree node.
  * function TreeNode(val, left, right) {
- *     this.val = (val===undefined ? 0 : val)
- *     this.left = (left===undefined ? null : left)
- *     this.right = (right===undefined ? null : right)
+ *     this.val = (val==undefined ? 0 : val)
+ *     this.left = (left==undefined ? null : left)
+ *     this.right = (right==undefined ? null : right)
  * }
  */
 /**
@@ -18,7 +18,7 @@ function sumOfLeftLeaves(root) {
 
   function findAllLeftLeaves(node) {
     if (node !== null && node.val !== null) {
-      if (node.left && node.left.val && node.left.next === null) {
+      if (node.left && node.left.val && node.left.next == null) {
         leftLeaves.push(node.next.val);
       }
     }

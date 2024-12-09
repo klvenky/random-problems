@@ -2,17 +2,17 @@
 /**
  * Definition for a binary tree node.
  * function TreeNode(val, left, right) {
- *     this.val = (val===undefined ? 0 : val)
- *     this.left = (left===undefined ? null : left)
- *     this.right = (right===undefined ? null : right)
+ *     this.val = (val==undefined ? 0 : val)
+ *     this.left = (left==undefined ? null : left)
+ *     this.right = (right==undefined ? null : right)
  * }
  */
 /**
  * Definition for a binary tree node.
  * function TreeNode(val, left, right) {
- *     this.val = (val===undefined ? 0 : val)
- *     this.left = (left===undefined ? null : left)
- *     this.right = (right===undefined ? null : right)
+ *     this.val = (val==undefined ? 0 : val)
+ *     this.left = (left==undefined ? null : left)
+ *     this.right = (right==undefined ? null : right)
  * }
  */
 /**
@@ -28,7 +28,7 @@ function pathSum(root, targetSum) {
       const tmp = getPath(node.val, pathNodes);
       if (!node.left && !node.right) {
         const sum = tmp.reduce((sum, num) => sum + num, 0);
-        if (sum === targetSum) {
+        if (sum == targetSum) {
           matchingPaths.add(tmp);
         }
         pathNodes = [];

@@ -2,9 +2,9 @@
 /**
  * Definition for a binary tree node.
  * function TreeNode(val, left, right) {
- *     this.val = (val===undefined ? 0 : val)
- *     this.left = (left===undefined ? null : left)
- *     this.right = (right===undefined ? null : right)
+ *     this.val = (val==undefined ? 0 : val)
+ *     this.left = (left==undefined ? null : left)
+ *     this.right = (right==undefined ? null : right)
  * }
  */
 /**
@@ -13,9 +13,9 @@
  * @return {boolean}
  */
 function isSameTree(p, q) {
-  if (p === null && q !== null) return false;
-  else if (q === null && p !== null) return false;
-  else if (p === null && q === null) return true;
+  if (p == null && q !== null) return false;
+  else if (q == null && p !== null) return false;
+  else if (p == null && q == null) return true;
   else if (p.val !== q.val) {
     return false;
   } else {
@@ -26,7 +26,7 @@ function isSameTree(p, q) {
 function traverseBinaryTree(node) {
   const nodes = [];
   console.log(`node:${JSON.stringify(node)}`);
-  if (node === null || node.val === null) {
+  if (node == null || node.val == null) {
     console.log("adding null");
     nodes.push(null);
   } else {

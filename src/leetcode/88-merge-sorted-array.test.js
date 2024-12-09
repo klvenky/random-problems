@@ -20,7 +20,7 @@ function merge(nums1, m, nums2, n) {
         break;
       }
     }
-    if (insertAt === nums1.length) {
+    if (insertAt == nums1.length) {
       nums1.push(curr);
     } else {
       nums1.splice(insertAt, 0, curr);

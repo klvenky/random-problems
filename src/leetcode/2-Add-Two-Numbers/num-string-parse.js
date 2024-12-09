@@ -1,8 +1,8 @@
 // Source: https://leetcode.com/problems/add-two-numbers/description/
 
 function ListNode(val, next) {
-  this.val = val === undefined ? 0 : val;
-  this.next = next === undefined ? null : next;
+  this.val = val == undefined ? 0 : val;
+  this.next = next == undefined ? null : next;
 }
 
 const getNodeFromNum = (input, firstRun = false) => {
@@ -11,7 +11,7 @@ const getNodeFromNum = (input, firstRun = false) => {
   const remainder = Number(intValue % 10n);
   const quotient = intValue / 10n;
   let output;
-  if (intValue === 0n && firstRun) {
+  if (intValue == 0n && firstRun) {
     output = new ListNode(0, null);
   } else if (remainder >= 0 && quotient > 0n) {
     output = new ListNode(remainder, getNodeFromNum(quotient));
@@ -65,7 +65,7 @@ function parseStringToNode(input, prev = "") {
   //     prev = { val: input[i], next: null };
   //   }
   // }
-  if (input.length === 0) {
+  if (input.length == 0) {
     return prev;
   } else {
     return `${parseStringToNode(input.substring(0, input.length - 1))}${input[input.length - 1]}`;

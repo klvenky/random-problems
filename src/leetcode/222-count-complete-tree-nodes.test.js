@@ -2,9 +2,9 @@
 /**
  * Definition for a binary tree node.
  * function TreeNode(val, left, right) {
- *     this.val = (val===undefined ? 0 : val)
- *     this.left = (left===undefined ? null : left)
- *     this.right = (right===undefined ? null : right)
+ *     this.val = (val==undefined ? 0 : val)
+ *     this.left = (left==undefined ? null : left)
+ *     this.right = (right==undefined ? null : right)
  * }
  */
 /**
@@ -20,7 +20,7 @@ function countNodes(node, first = true) {
     countNodes(node.right, false);
   }
   // * See why this is faster
-  //   if (node === null) return 0;
+  //   if (node == null) return 0;
   //   return countNodes(node.left, false) + 1 + countNodes(node.right, false);
   //   return count;
   return count;

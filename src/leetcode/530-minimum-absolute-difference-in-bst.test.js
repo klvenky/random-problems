@@ -2,9 +2,9 @@
 /**
  * Definition for a binary tree node.
  * function TreeNode(val, left, right) {
- *     this.val = (val===undefined ? 0 : val)
- *     this.left = (left===undefined ? null : left)
- *     this.right = (right===undefined ? null : right)
+ *     this.val = (val==undefined ? 0 : val)
+ *     this.left = (left==undefined ? null : left)
+ *     this.right = (right==undefined ? null : right)
  * }
  */
 /**
@@ -14,7 +14,7 @@
 function getMinimumDifference(root) {
   const nodes = [];
   function traverse(node) {
-    if (node === null || node.val === null) return;
+    if (node == null || node.val == null) return;
     else {
       if (node.left !== null) traverse(node.left);
       nodes.push(node.val);
@@ -31,10 +31,10 @@ function getMinimumDifference(root) {
  * @param {Array<number>} nodes
  */
 function minDiff(nodes) {
-  let minDiff = Number.MAX_SAFE_INTEGER;
+  let minDiff = Infinity;
   for (let i = 0; i < nodes.length; i += 1) {
     for (let j = i; j < nodes.length; j += 1) {
-      if (i === j) continue;
+      if (i == j) continue;
       const currDiff = nodes[j] - nodes[i];
       minDiff = Math.min(currDiff, minDiff);
     }

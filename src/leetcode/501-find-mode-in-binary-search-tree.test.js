@@ -3,9 +3,9 @@
 /**
  * Definition for a binary tree node.
  * function TreeNode(val, left, right) {
- *     this.val = (val===undefined ? 0 : val)
- *     this.left = (left===undefined ? null : left)
- *     this.right = (right===undefined ? null : right)
+ *     this.val = (val==undefined ? 0 : val)
+ *     this.left = (left==undefined ? null : left)
+ *     this.right = (right==undefined ? null : right)
  * }
  */
 /**
@@ -16,7 +16,7 @@
 function findMode(node) {
   const { map, maxCount } = traverse(node);
   return Object.entries(map)
-    .filter(([k, v]) => v === maxCount)
+    .filter(([k, v]) => v == maxCount)
     .map(([k]) => parseInt(k));
 }
 

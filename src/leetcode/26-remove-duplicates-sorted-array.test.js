@@ -50,7 +50,7 @@ test("remove duplicates in sorted array", () => {
   // const expected1 = [1, 2];
   // const result = removeDuplicates(input1);
   // expect(result).toEqual(2);
-  // for (let i = 0; i < result; i += 1) input1[i] === expected1[i];
+  // for (let i = 0; i < result; i += 1) input1[i] == expected1[i];
   // testHelper([1, 1, 2], [1, 2]);
   testHelper([0, 0, 1, 1, 1, 2, 2, 3, 3, 4], [0, 1, 2, 3, 4]);
 });

@@ -13,7 +13,7 @@ function isSymmetric(root) {
       else if ((!n1 && n2) || (!n2 && n1)) return false;
       else {
         return (
-          n1.val === n2.val &&
+          n1.val == n2.val &&
           areMirrorNodes(n1.left, n2.right) &&
           areMirrorNodes(n1.right, n2.left)
         );
