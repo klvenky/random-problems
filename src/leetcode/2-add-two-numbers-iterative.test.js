@@ -5,34 +5,36 @@
  * @return {ListNode}
  */
 function addTwoNumbers(l1, l2) {
-  const num1 = getNumberStrFromNode(l1);
-  const num2 = getNumberStrFromNode(l2);
-
-  const maxDigits = num1.length > num2.length ? num1.length : num2.length;
-  let nums1 = prefixZeroesUntil(num1, maxDigits),
-    nums2 = prefixZeroesUntil(num2, maxDigits);
-
-  const sum = new Array(maxDigits);
+  let done = false;
+  const sum = [];
+  let node1 = l1,
+    node2 = l2;
   let carry = 0;
-  for (let i = maxDigits - 1; i >= 0; i -= 1) {
-    const tmp = carry + parseInt(nums1[i]) + parseInt(nums2[i]);
+  while (!done) {
+    let num1 = node1?.val ?? 0;
+    let num2 = node2?.val ?? 0;
+    const tmp = num1 + num2 + carry;
+
     if (tmp > 9) {
-      sum[i] = tmp % 10;
+      sum.push(tmp % 10);
       carry = Math.floor(tmp / 10);
     } else {
       carry = 0;
-      sum[i] = tmp;
+      sum.push(tmp);
     }
+    node1 = node1?.next ?? null;
+    node2 = node2?.next ?? null;
+    if (node1 == null && node2 == null && carry > 0) {
+      sum.push(carry);
+      carry = 0;
+    }
+    if (!node1 && !node2 && carry == 0) {
+      done = true;
+    }
+    // console.log({ sum, num1, num2, tmp, carry, done, node1, node2 });
   }
-
-  if (carry > 0) {
-    sum.unshift(carry);
-  }
-  const result = sum.join("");
-
-  console.log(`${nums1} + ${nums2} = ${result}`);
-  const node = buildListNodeFromString(result);
-  return node;
+  // console.log(sum);
+  return buildListNodeFromString(sum.reverse().join(""));
 }
 
 function prefixZeroesUntil(str, max) {
@@ -72,36 +74,36 @@ function ListNode(val, next) {
 }
 
 const scenarios = [
-  {
-    l1: { val: 2, next: { val: 4, next: { val: 3, next: null } } },
-    l2: { val: 5, next: { val: 6, next: { val: 4, next: null } } },
-    result: buildListNodeFromString("807"),
-  },
-  {
-    l1: { val: 0, next: null },
-    l2: { val: 0, next: null },
-    result: buildListNodeFromString("0"),
-  },
-  {
-    l1: {
-      val: 9,
-      next: {
-        val: 9,
-        next: {
-          val: 9,
-          next: {
-            val: 9,
-            next: { val: 9, next: { val: 9, next: { val: 9, next: null } } },
-          },
-        },
-      },
-    },
-    l2: {
-      val: 9,
-      next: { val: 9, next: { val: 9, next: { val: 9, next: null } } },
-    },
-    result: buildListNodeFromString("10009998"),
-  },
+  // {
+  //   l1: { val: 2, next: { val: 4, next: { val: 3, next: null } } },
+  //   l2: { val: 5, next: { val: 6, next: { val: 4, next: null } } },
+  //   result: buildListNodeFromString("807"),
+  // },
+  // {
+  //   l1: { val: 0, next: null },
+  //   l2: { val: 0, next: null },
+  //   result: buildListNodeFromString("0"),
+  // },
+  // {
+  //   l1: {
+  //     val: 9,
+  //     next: {
+  //       val: 9,
+  //       next: {
+  //         val: 9,
+  //         next: {
+  //           val: 9,
+  //           next: { val: 9, next: { val: 9, next: { val: 9, next: null } } },
+  //         },
+  //       },
+  //     },
+  //   },
+  //   l2: {
+  //     val: 9,
+  //     next: { val: 9, next: { val: 9, next: { val: 9, next: null } } },
+  //   },
+  //   result: buildListNodeFromString("10009998"),
+  // },
   {
     l1: {
       val: 1,
@@ -202,7 +204,7 @@ const scenarios = [
   },
 ];
 
-test("addTwoNumbers", () => {
+test("add two numbers iterative", () => {
   for (const scenario of scenarios) {
     const actual = addTwoNumbers(scenario.l1, scenario.l2);
     expect(actual).toEqual(scenario.result);

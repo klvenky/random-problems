@@ -5,9 +5,65 @@
  * @return {ListNode}
  */
 function addTwoNumbers(l1, l2) {
-  const num1 = getNumberFromNode(l1);
-  const num2 = getNumberFromNode(l2);
-  return buildListNodeFromNum(num1 + num2);
+  const num1 = getNumberStrFromNode(l1);
+  const num2 = getNumberStrFromNode(l2);
+
+  const maxDigits = num1.length > num2.length ? num1.length : num2.length;
+  let nums1 = prefixZeroesUntil(num1, maxDigits),
+    nums2 = prefixZeroesUntil(num2, maxDigits);
+
+  const sum = new Array(maxDigits);
+  let carry = 0;
+  for (let i = maxDigits - 1; i >= 0; i -= 1) {
+    const tmp = carry + parseInt(nums1[i]) + parseInt(nums2[i]);
+    if (tmp > 9) {
+      sum[i] = tmp % 10;
+      carry = Math.floor(tmp / 10);
+    } else {
+      carry = 0;
+      sum[i] = tmp;
+    }
+  }
+
+  if (carry > 0) {
+    sum.unshift(carry);
+  }
+  const result = sum.join("");
+
+  console.log(`${nums1} + ${nums2} = ${result}`);
+  const node = buildListNodeFromString(result);
+  return node;
+}
+
+function prefixZeroesUntil(str, max) {
+  if (max > str.length) {
+    return `${new Array(max - str.length).fill(0).join("")}${str}`;
+  }
+  return str;
+}
+
+function buildListNodeFromString(numStr) {
+  const numsLen = numStr.length;
+  if (numsLen > 0) {
+    const val = numStr.charAt(numStr.length - 1);
+    const next = numStr.substring(0, numsLen - 1);
+    // console.log(`val: ${val}, next -> '${next}'`);
+    return new ListNode(
+      parseInt(val),
+      next.length > 0 ? buildListNodeFromString(next) : null,
+    );
+  }
+  return null;
+}
+
+function getNumberStrFromNode(node) {
+  let tmp = node;
+  const nums = [];
+  while (tmp) {
+    nums.push(tmp.val);
+    tmp = tmp.next;
+  }
+  return nums.reverse().join("");
 }
 
 function ListNode(val, next) {
@@ -15,32 +71,16 @@ function ListNode(val, next) {
   this.next = next === undefined ? null : next;
 }
 
-function buildListNodeFromNum(num) {
-  const rem = num % 10;
-  const q = Math.floor(num / 10);
-  return new ListNode(rem, q !== 0 ? buildListNodeFromNum(q) : null);
-}
-
-function getNumberFromNode(node) {
-  let tmp = node;
-  const nums = [];
-  while (tmp) {
-    nums.push(tmp.val);
-    tmp = tmp.next;
-  }
-  return parseInt(nums.reverse().join(""), 10);
-}
-
 const scenarios = [
   {
     l1: { val: 2, next: { val: 4, next: { val: 3, next: null } } },
     l2: { val: 5, next: { val: 6, next: { val: 4, next: null } } },
-    result: { val: 7, next: { val: 0, next: { val: 8, next: null } } },
+    result: buildListNodeFromString("807"),
   },
   {
     l1: { val: 0, next: null },
     l2: { val: 0, next: null },
-    result: { val: 0, next: null },
+    result: buildListNodeFromString("0"),
   },
   {
     l1: {
@@ -60,122 +100,106 @@ const scenarios = [
       val: 9,
       next: { val: 9, next: { val: 9, next: { val: 9, next: null } } },
     },
-    result: {
-      val: 8,
+    result: buildListNodeFromString("10009998"),
+  },
+  {
+    l1: {
+      val: 1,
       next: {
-        val: 9,
+        val: 0,
         next: {
-          val: 9,
+          val: 0,
           next: {
-            val: 9,
+            val: 0,
             next: {
               val: 0,
-              next: { val: 0, next: { val: 0, next: { val: 1, next: null } } },
+              next: {
+                val: 0,
+                next: {
+                  val: 0,
+                  next: {
+                    val: 0,
+                    next: {
+                      val: 0,
+                      next: {
+                        val: 0,
+                        next: {
+                          val: 0,
+                          next: {
+                            val: 0,
+                            next: {
+                              val: 0,
+                              next: {
+                                val: 0,
+                                next: {
+                                  val: 0,
+                                  next: {
+                                    val: 0,
+                                    next: {
+                                      val: 0,
+                                      next: {
+                                        val: 0,
+                                        next: {
+                                          val: 0,
+                                          next: {
+                                            val: 0,
+                                            next: {
+                                              val: 0,
+                                              next: {
+                                                val: 0,
+                                                next: {
+                                                  val: 0,
+                                                  next: {
+                                                    val: 0,
+                                                    next: {
+                                                      val: 0,
+                                                      next: {
+                                                        val: 0,
+                                                        next: {
+                                                          val: 0,
+                                                          next: {
+                                                            val: 0,
+                                                            next: {
+                                                              val: 0,
+                                                              next: {
+                                                                val: 0,
+                                                                next: {
+                                                                  val: 1,
+                                                                  next: null,
+                                                                },
+                                                              },
+                                                            },
+                                                          },
+                                                        },
+                                                      },
+                                                    },
+                                                  },
+                                                },
+                                              },
+                                            },
+                                          },
+                                        },
+                                      },
+                                    },
+                                  },
+                                },
+                              },
+                            },
+                          },
+                        },
+                      },
+                    },
+                  },
+                },
+              },
             },
           },
         },
       },
     },
+    l2: { val: 5, next: { val: 6, next: { val: 4, next: null } } },
+    result: buildListNodeFromString("1000000000000000000000000000466"),
   },
-  // {
-  //
-  //     l1: {
-  //       val: 1,
-  //       next: {
-  //         val: 0,
-  //         next: {
-  //           val: 0,
-  //           next: {
-  //             val: 0,
-  //             next: {
-  //               val: 0,
-  //               next: {
-  //                 val: 0,
-  //                 next: {
-  //                   val: 0,
-  //                   next: {
-  //                     val: 0,
-  //                     next: {
-  //                       val: 0,
-  //                       next: {
-  //                         val: 0,
-  //                         next: {
-  //                           val: 0,
-  //                           next: {
-  //                             val: 0,
-  //                             next: {
-  //                               val: 0,
-  //                               next: {
-  //                                 val: 0,
-  //                                 next: {
-  //                                   val: 0,
-  //                                   next: {
-  //                                     val: 0,
-  //                                     next: {
-  //                                       val: 0,
-  //                                       next: {
-  //                                         val: 0,
-  //                                         next: {
-  //                                           val: 0,
-  //                                           next: {
-  //                                             val: 0,
-  //                                             next: {
-  //                                               val: 0,
-  //                                               next: {
-  //                                                 val: 0,
-  //                                                 next: {
-  //                                                   val: 0,
-  //                                                   next: {
-  //                                                     val: 0,
-  //                                                     next: {
-  //                                                       val: 0,
-  //                                                       next: {
-  //                                                         val: 0,
-  //                                                         next: {
-  //                                                           val: 0,
-  //                                                           next: {
-  //                                                             val: 0,
-  //                                                             next: {
-  //                                                               val: 0,
-  //                                                               next: {
-  //                                                                 val: 0,
-  //                                                                 next: {
-  //                                                                   val: 1,
-  //                                                                   next: null,
-  //                                                                 },
-  //                                                               },
-  //                                                             },
-  //                                                           },
-  //                                                         },
-  //                                                       },
-  //                                                     },
-  //                                                   },
-  //                                                 },
-  //                                               },
-  //                                             },
-  //                                           },
-  //                                         },
-  //                                       },
-  //                                     },
-  //                                   },
-  //                                 },
-  //                               },
-  //                             },
-  //                           },
-  //                         },
-  //                       },
-  //                     },
-  //                   },
-  //                 },
-  //               },
-  //             },
-  //           },
-  //         },
-  //       },
-  //     },
-  //     l2: { val: 5, next: { val: 6, next: { val: 4, next: null } } },
-  //   result: {},
-  // },
 ];
 
 test("addTwoNumbers", () => {
