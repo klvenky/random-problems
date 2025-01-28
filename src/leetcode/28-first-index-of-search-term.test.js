@@ -20,7 +20,7 @@ function strStr(haystack, needle) {
   return result;
 }
 
-test("tests", () => {
+test("find index of first occurance in string", () => {
   expect(strStr("sadbutsad", "sad")).toEqual(0);
   expect(strStr("leetcode", "leeto")).toEqual(-1);
   expect(strStr("hello", "ll")).toEqual(2);
